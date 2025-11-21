@@ -9,17 +9,22 @@ void InitializeVector(vector *vec) {
 void BuildVector(vector *vec, int n) {
     vec->capacity = n;
     vec->num_of_elements = 0;
-    vec->items = malloc(sizeof(void *) * vec->capacity);
-    int i = 0;
-    while(i <= n) {
-        vec->items[vec->num_of_elements++] = 0;
-        ++i;
-        vec->num_of_elements++;
+    vec->items = malloc(sizeof(void *) * n);
+    for(int i = 0; i < n; ++i) {
+        vec->items[i] = NULL;
     }
 }
 
-void BuildVectorWithinRange(vector *, int i, int j) {
-
+void BuildVectorWithinRange(vector *vec, int i, int j) {
+    if(i < 0 || j < 0 || j < i) {
+        // return error, not expected behavior
+    }
+    vec->capacity = range;
+    vec->num_of_elements = 0;
+    vec->items = malloc(sizeof(void *) * range);
+    for(int i = 0; i < range; ++i) {
+        vec->items[i] = 
+    }
 }
 
 int Size(vector *vec) {

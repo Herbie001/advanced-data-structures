@@ -22,4 +22,4 @@ Next include essential functions that help you implement the vector. Some very u
 #### Initialize Vector
 
 
-### Testing ***(vector-test.c)***
+### Testing `(vector-test.c)`

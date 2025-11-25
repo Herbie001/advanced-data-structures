@@ -1,5 +1,6 @@
 #include "int-array.h"
 using namespace std;
+
 IntArray::IntArray(int initialSize) {
     if(initialSize <= 0) {
         initialSize = 2;
@@ -36,7 +37,7 @@ void IntArray::prependElement(int value) {
         expandCapacity();
     }
     for(int i = numOfElements; i >= 0; --i) {
-        data[i] = data[i+1];
+        data[i] = data[i-1];
     }
     data[0] = value;
     ++numOfElements;
@@ -46,15 +47,18 @@ void IntArray::insertAt(int value, int index) {
     if(numOfElements == capacity) {
         expandCapacity();
     }
-    
-
+    for(int i = numOfElements; i > index; --i) {
+        data[i] = data[i-1];
+    }
+    data[index] = value;
+    ++numOfElements;
 }
 
-unsigned int IntArray::size() {
+unsigned int IntArray::size() const {
     return numOfElements;
 }
 
-bool IntArray::isEmpty() {
+bool IntArray::isEmpty() const {
     return numOfElements == 0;
 }
 

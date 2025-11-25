@@ -1,1 +1,32 @@
-*.out
+# Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+a.out
+# If your executables have specific names, add them:
+myprogram
+
+# Debug symbols
+*.dSYM/
+*.pdb
+
+# Intermediate build files
+*.ilk
+*.pch
+*.ipch
+
+# Dependency files
+*.d
+
+# Library files (if not intended for version control)
+*.lib
+*.dll
+*.so
+
+# Build directories
+build/
+bin/
+Debug/
+Release/

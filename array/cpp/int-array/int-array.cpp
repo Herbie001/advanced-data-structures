@@ -54,6 +54,10 @@ void IntArray::insertAt(int value, int index) {
     ++numOfElements;
 }
 
+unsigned int IntArray::getCapacity() {
+    return capacity;
+}
+
 unsigned int IntArray::size() const {
     return numOfElements;
 }

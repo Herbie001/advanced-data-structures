@@ -22,6 +22,8 @@ class IntArray {
     public:
         /**
          * Constructor for the array
+         * @param initialSize The integer value to assign as the 
+         * initial capacity of the IntArray object
          */
         IntArray(int initialSize);
 
@@ -34,12 +36,14 @@ class IntArray {
         /**
          * Copy constructor
          * Creates a deep copy of the IntArray
+         * @param other Reference to another IntArray
          */
         IntArray(const IntArray& other);
 
         /**
          * Move constructor
          * Transfer ownership of memory from one IntArray to this one
+         * @param other Reference to another IntArray
          */
         IntArray(IntArray&& other) noexcept;
 
@@ -83,8 +87,15 @@ class IntArray {
 
         /**
          * Clear the contents of the IntArray object
+         * while the capacity stays the same
          */
         void clear();
+
+        /**
+         * Get the current capacity of the IntArray object
+         * @return The number of buckets available 
+         */
+        unsigned int getCapacity();
 
         /**
          * Get the number of elements in the array
@@ -104,7 +115,9 @@ class IntArray {
         void printList();
 
         /**
-         * Function to swap elements at two 
+         * Function to swap references at two different indices
+         * @param index1 The index we're swapping index2 with
+         * @param index2 The index we're swapping index1 with
          */
         void swap(int index1, int index2);
 
@@ -131,37 +144,53 @@ class IntArray {
 
         /**
          * Overloaded [] operator to access elements easily
+         * @param index The index which is a reference to the desired value at that specific index
+         * @return The reference at the specific index
          */
         int& operator[](unsigned int index);
 
         /**
          * Overloaded the [] operator for constant references
+         * @param index The index which is a reference to the desired  value at that specific index
+         * element in IntArray.
+         * @return The reference at the specific index
          */
         const int& operator[](unsigned int index) const;
 
         /**
-         * Iterator for IntArr
+         * Iterator for IntArr that points at the beginning 
          * @return Value at the beginning of the IntArray
          */
         int* begin() {return data;}
 
         /**
-         * Iterator for constant IntArr
+         * Iterator for constant IntArr that points to the beginning
+         * @return Constant value at the beginning
          */
-        const int* begin() const {return data;}
+        const int* cbegin() const {return &*(data+0);}
 
         /**
-         * Iterator for constant IntArr
+         * Iterator for IntArr that points at the last element
+         * @return Value at the end of IntArray
          */
-        int* end() {return data + numOfElements;}
+        int* end() {return &*(data + numOfElements);}
 
         /**
-         * Iterator for constant IntArr
-         * @return const value at the end of IntArr
+         * Iterator for constant IntArr that points at the last element
+         * @return Const value at the end of IntArr object
          */
-        const int* end() const {return data + numOfElements;}
+        const int* cend() const {return &*(data + numOfElements);}
 
-        int* cend() {return }
+        /**
+         * Iterator for constant IntArray that points at the last 
+         * element
+         * @return Const value at the end of the IntArray object
+         */
+        const int* const cend() {return &*(data + numOfElements);}
+
+        /**
+         * 
+         */
 
 };
 
